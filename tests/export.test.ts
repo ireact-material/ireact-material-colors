@@ -19,12 +19,38 @@ import {
   red,
   teal,
   yellow,
-} from '../src';
-import { presetBlueColors, presetBlueDarkColors } from './index.test';
+} from "../src";
+
+// 预设蓝色颜色
+const presetBlueColors = [
+  "#f0fbff",
+  "#c7edff",
+  "#9eddff",
+  "#75caff",
+  "#4db5ff",
+  "#2196f3",
+  "#1272cc",
+  "#0754a6",
+  "#003980",
+  "#002559",
+].map((color) => color.toLowerCase());
+
+const presetBlueDarkColors = [
+  "#121e2a",
+  "#142c42",
+  "#183b57",
+  "#1a4f78",
+  "#1c69a5",
+  "#1f83d2",
+  "#47a5e8",
+  "#70c1f3",
+  "#9ad7f8",
+  "#c3e9fa",
+];
 
 // 导入颜色
 test(`import { blue } from '@ireact-material/colors'`, () => {
-  console.log('presetBlueColors', blue.primary);
+  console.log("presetBlueColors", blue.primary);
   expect(blue.primary).toEqual(presetBlueColors[5]);
   expect([...blue]).toEqual(presetBlueColors);
 });
@@ -33,7 +59,7 @@ test(`import { blue } from '@ireact-material/colors'`, () => {
 test(`import { presetDarkPalettes } from '@ireact-material/colors'`, () => {
   const darkBlue = presetDarkPalettes.blue;
 
-  console.log('presetBlueDarkColors', presetBlueDarkColors);
+  console.log("presetBlueDarkColors", presetBlueDarkColors);
   expect([...darkBlue]).toEqual(presetBlueDarkColors);
 });
 

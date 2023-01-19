@@ -1,9 +1,9 @@
-import { inputToRGB, rgbToHex, rgbToHsv } from '@ctrl/tinycolor';
+import { inputToRGB, rgbToHex, rgbToHsv } from "@ctrl/tinycolor";
 
 // type
 
 interface Opts {
-  theme?: 'dark' | 'default';
+  theme?: "dark" | "default";
   backgroundColor?: string;
 }
 
@@ -69,9 +69,13 @@ function getHue(hsv: HsvObject, i: number, light?: boolean): number {
 
   // 根据色相不同，色相转向不同
   if (Math.round(hsv.h) >= 60 && Math.round(hsv.h) <= 240) {
-    hue = light ? Math.round(hsv.h) - hueStep * i : Math.round(hsv.h) + hueStep * i;
+    hue = light
+      ? Math.round(hsv.h) - hueStep * i
+      : Math.round(hsv.h) + hueStep * i;
   } else {
-    hue = light ? Math.round(hsv.h) + hueStep * i : Math.round(hsv.h) - hueStep * i;
+    hue = light
+      ? Math.round(hsv.h) + hueStep * i
+      : Math.round(hsv.h) - hueStep * i;
   }
 
   if (hue < 0) {
@@ -179,7 +183,7 @@ export default function generate(color: string, opts: Opts = {}): string[] {
         h: getHue(hsv, i, true),
         s: getSaturation(hsv, i, true),
         v: getValue(hsv, i, true),
-      }),
+      })
     );
 
     // 插入数组
@@ -201,24 +205,24 @@ export default function generate(color: string, opts: Opts = {}): string[] {
         h: getHue(hsv, i),
         s: getSaturation(hsv, i),
         v: getValue(hsv, i),
-      }),
+      })
     );
 
     patterns.push(colorString);
   }
 
   // 深色主题模式
-  if (opts.theme === 'dark') {
+  if (opts.theme === "dark") {
     return darkColorMap.map(({ index, opacity }) => {
       //  将 RGB 颜色转换为十六进制
       const darkColorString: string = toHex(
         mix(
           // 转换为 RGB
-          inputToRGB(opts.backgroundColor || '#141414'),
+          inputToRGB(opts.backgroundColor || "#141414"),
           // 转换为 RGB
           inputToRGB(patterns[index]),
-          opacity * 100,
-        ),
+          opacity * 100
+        )
       );
 
       return darkColorString;
