@@ -1,11 +1,15 @@
 {
-  "name": "ireact-material-colors",
+  "name": "@ireact-material/colors",
   "version": "0.0.1",
   "sideEffects": false,
   "description": "color palettes calculator",
   "repository": {
     "type": "git",
     "url": "https://github.com/ireact-material/ireact-material-colors"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "author": "282126990@qq.com",
   "main": "./lib/index",
