@@ -26,7 +26,7 @@ const presetPrimaryColors: Record<string, string> = {
   grey: "#9e9e9e",
 };
 
-// 预设调色板
+// 存储所有由预设衍生出的调色板
 const presetPalettes: PalettesProps = {};
 // 预设深色调色板
 const presetDarkPalettes: PalettesProps = {};
